@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="LoginDialog.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LoginDialog"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:contentDialog="using:LoginDialog.Shared"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <ControlTemplate TargetType="contentDialog:OverlayContentDialog" x:Key="dialogTemplate">
+            <Grid>
+                <ContentPresenter Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                <Grid Visibility="Collapsed" x:Name="dialogGrid" >
+                    <Grid Opacity="0.5" Background="White"/>
+                    <Border BorderBrush="DarkGray" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" BorderThickness="2">
+                        <UserControl Content="{TemplateBinding DialogContent}" />
+                    </Border>
+                </Grid>
+            </Grid>
+        </ControlTemplate>
+        <DataTemplate x:Key="navViewHeader">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <!-- not working in WASM https://github.com/nventive/Uno/issues/466 
+                <controls1:HseButton Click="Login_OnClick" Content="{Binding LoginViewModel.LoginAction, ElementName=root}"/>
+                -->
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+
+    <contentDialog:OverlayContentDialog x:Name="overlayContentDialog" Template="{StaticResource dialogTemplate}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel HorizontalAlignment="Right" >
+                <Button Click="Login_OnClick" Content="{Binding LoginViewModel.LoginAction, ElementName=root}" Margin="0 0 20 0"/>
+            </StackPanel>
+            <Grid x:Name="frameGrid" Grid.Row="1"/>
+        </Grid>
+    </contentDialog:OverlayContentDialog>
+
+
+</Page>

@@ -82,11 +82,6 @@ namespace LoginDialog.Shared
             {
                 uiElement.SetValue(Grid.RowProperty, 1);
                 window.grdContainer.Children.Add(uiElement);
-                //				var hasInitialFocus = uiElement as IHasInitialFocus;
-                //				if(hasInitialFocus != null)
-                //				{
-                //					hasInitialFocus.SetInitialFocus();
-                //				}
                 return;
             }
             throw new Exception("Window message must either be of type UIElemnet or string");
@@ -169,11 +164,8 @@ namespace LoginDialog.Shared
                         hasInitialFocus.SetInitialFocus();
                     }
                 }
-                // ReSharper disable EmptyGeneralCatchClause
                 catch
-                // ReSharper restore EmptyGeneralCatchClause
                 {
-                    // Swallow exception; not worth bothering user if focus isn't set correctly
                 }
                 finally
                 {

@@ -30,23 +30,7 @@ namespace LoginDialog.Shared
 
         public void SetInitialFocus()
         {
-            txtUserId.Focus(FocusState.Programmatic);
-        }
-
-        void txtPassword_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == VirtualKey.Enter)
-            {
-                var vm = DataContext as LoginViewModel;
-                vm?.OK(this);
-                e.Handled = true;
-            }
-        }
-
-        void txtUserId_Changed(object sender, TextChangedEventArgs e)
-        {
-            //var vm = DataContext as LoginViewModel;
-            //vm.UserId = txtUserId.Text;
+            
         }
     }
 }

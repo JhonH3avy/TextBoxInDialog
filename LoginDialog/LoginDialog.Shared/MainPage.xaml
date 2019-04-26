@@ -5,8 +5,9 @@
     xmlns:local="using:LoginDialog"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:contentDialog="using:LoginDialog.Shared"
     mc:Ignorable="d"
-    xmlns:modelView="using:LoginDialog.Shared">
+    x:Name="root">
 
     <Page.DataContext>
         <modelView:LoginViewModel/>

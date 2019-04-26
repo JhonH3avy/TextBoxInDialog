@@ -30,6 +30,10 @@ namespace LoginDialog.Shared
             InitializeComponent();
             CancelCommand = new RelayCommand(() => Close());
             GotFocus += OkCancelWindowGotFocus;
+
+
+            DataContext = viewModel;
+            WindowMessage = content;
         }
 
         public void Close()

@@ -14,16 +14,21 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <TextBlock Style="{StaticResource fieldLabel}">Login</TextBlock>
-        <PasswordBox Password="{Binding UserId, Mode=TwoWay}" Style="{StaticResource row0col0Value}" MinWidth="150" x:Name="txtUserId" />
+        <TextBox Text="{Binding UserId, Mode=TwoWay}" Style="{StaticResource row0col0Value}" MinWidth="150" x:Name="txtUserId" />
         <TextBlock Style="{StaticResource fieldLabel}" Text="{Binding UserId, Mode=OneWay}"></TextBlock>
 
         <TextBlock Style="{StaticResource stackedLabel}" Grid.Row="1" MinWidth="150">Password</TextBlock>
         <PasswordBox Password="{Binding Password, Mode=TwoWay}" Style="{StaticResource col0Value}" Grid.Row="1" KeyDown="txtPassword_KeyDown"/>
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="{Binding UserId, Mode=OneWay}" Style="{StaticResource stackedLabel}" MinWidth="150"></TextBlock>
+            <TextBlock Text="{Binding Password, Mode=OneWay}" Style="{StaticResource stackedLabel}" MinWidth="150"></TextBlock>
+        </StackPanel>
     </Grid>
 </ContentControl>

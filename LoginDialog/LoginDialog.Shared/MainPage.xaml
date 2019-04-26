@@ -20,13 +20,6 @@
                 </Grid>
             </Grid>
         </ControlTemplate>
-        <DataTemplate x:Key="navViewHeader">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <!-- not working in WASM https://github.com/nventive/Uno/issues/466 
-                <controls1:HseButton Click="Login_OnClick" Content="{Binding LoginViewModel.LoginAction, ElementName=root}"/>
-                -->
-            </StackPanel>
-        </DataTemplate>
     </Page.Resources>
 
 

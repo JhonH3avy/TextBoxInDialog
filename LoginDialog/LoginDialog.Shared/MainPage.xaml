@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:contentDialog="using:LoginDialog.Shared"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    x:Name="root">
 
     <Page.Resources>
         <ControlTemplate TargetType="contentDialog:OverlayContentDialog" x:Key="dialogTemplate">
@@ -30,7 +31,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel HorizontalAlignment="Right" >
-                <Button Click="Login_OnClick" Content="{Binding LoginViewModel.LoginAction, ElementName=root}" Margin="0 0 20 0"/>
+                <Button Click="Login_OnClick" Content="{Binding LoginViewModel.LoginAction, Mode=OneWay, ElementName=root}" Margin="0 0 20 0"/>
             </StackPanel>
             <Grid x:Name="frameGrid" Grid.Row="1"/>
         </Grid>

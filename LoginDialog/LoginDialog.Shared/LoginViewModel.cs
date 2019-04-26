@@ -16,16 +16,7 @@ namespace LoginDialog.Shared
         }
 
         public override bool OK(object window)
-        {
-            var loginTask = LoginContext.Login(UserId, Password);
-            if (!loginTask.IsFaulted && loginTask.Result)
-            {
-                if (View is OkCancelDialog okCancelWindow)
-                {
-                    okCancelWindow.Close();
-                }
-                loginActionViewModel.LoggedIn();
-            }            
+        {          
             return false;
         }
 

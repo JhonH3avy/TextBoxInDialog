@@ -25,7 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)IInvalidateCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IOkCancelViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LoginActionViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)LoginContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LoginControl.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">

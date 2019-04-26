@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
 namespace LoginDialog.Shared
@@ -9,29 +10,15 @@ namespace LoginDialog.Shared
     {
         public LoginActionViewModel()
         {
-            LoginAction = "Checking status";
-            LoginContext.CheckStatus().ContinueWith(t =>
-            {
-                if (t.IsFaulted)
-                {
-                    SetLoggedOut();
-                }
-                else
-                {
-                    if (t.Result) SetLoggedIn();
-                    else SetLoggedOut();
-                }
-            });
-        }
-
-        void SetLoggedOut()
-        {
             LoginAction = "Login";
         }
 
-        void SetLoggedIn()
+        void ChangeLogState()
         {
-            LoginAction = "Logout";
+            if (LoginAction == "Login")
+                LoginAction = "Logout";
+            else
+                LoginAction = "Login";
         }
 
         string loginAction;
@@ -43,30 +30,14 @@ namespace LoginDialog.Shared
 
         public void Login(MainPage mainPage)
         {
-            if (!LoginContext.LoggedIn)
+            if (LoginAction == "Login")
             {
                 var loginViewModel = new LoginViewModel(this);
                 var window = new OkCancelDialog(new LoginControl(), loginViewModel);
-                //                mainPage.Panel.Children.Add(window);
                 DialogService.Instance.Show(window);
                 var res = window.Focus(FocusState.Programmatic);
-                Console.WriteLine(res);
             }
-            else
-            {
-                Logout();
-            }
-        }
-
-        public void LoggedIn()
-        {
-            SetLoggedIn();
-        }
-
-        void Logout()
-        {
-            LoginContext.Logout();
-            SetLoggedOut();
+            ChangeLogState();
         }
     }
 }
